@@ -4,7 +4,7 @@
 
 11111111 = 255 decimal = 8 bits
 
-integer = 31bits (signed + unsigned) = (+ or -) 1bit
+signed integer = 31 bit (1 bit for + or - sign)
 
 
 2 ** [bit] -1 
@@ -13,23 +13,31 @@ integer = 31bits (signed + unsigned) = (+ or -) 1bit
 '''
 
 count = 0
+iBit  = None
 
 while True:
     total_bits = input('Enter bit: ')
-    print(f'input is: {total_bits}')
+    print(f'bits : {total_bits}')
     print("-----------------------")
-    try:
-        iBit = int(total_bits)
-    except:
-        print("Only Numeric!")
-        continue
-    if iBit == None:
-        deci = 2 ** iBit - 1
-        print(f'Decimal value is: {deci}')
-    if iBit == "end":
+   
+    if total_bits == "end":
+        print("End Program")
         break
+    else:
+        try:
+            iBit = int(total_bits)
+        except:
+            print("Only Numeric!")
+            continue
+    
+    if iBit == 31:
+        print("Signed integer")  
+    elif iBit == 8:
+        print("8 bit")    
+    if iBit != None:
+        start = -(pow(2 , iBit))
+        end = (pow(2 , iBit)) - 1
+        print(f' Signed value is: {start} to {end}')
     count = count + 1
 
-    
         
-
